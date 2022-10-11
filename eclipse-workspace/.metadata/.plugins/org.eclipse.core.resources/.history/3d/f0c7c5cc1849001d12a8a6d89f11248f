@@ -1,0 +1,33 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<%
+		request.setCharacterEncoding("UTF-8");
+		String id = request.getParameter("id");
+		String pwd = request.getParameter("pwd");
+		
+		if(id.isEmpty() || pwd.isEmpty()){
+			if(id.isEmpty() || pwd.isEmpty())
+				request.setAttribute("msg", "ID와 PASSWD는 필수입력사항이니 반드시 입력하세요.");
+			else if(id.isEmpty())
+				request.setAttribute("msg", "ID는 필수입력사항이니 반드시 입력하세요.");
+			else if(pwd.isEmpty()){
+				request.setAttribute("msg", "PASSWD는 필수 입력사항이니 반드시 입력하세요.");
+				
+			}
+			RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
+			rd.forward(request, response);
+			return;
+		}
+	%>
+	
+	아이디 : <%= id %><br>
+	비밀번호 : <%= pwd %><br>
+</body>
+</html>
