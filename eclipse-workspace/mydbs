@@ -1,0 +1,18 @@
+create table test(
+	id varchar(10), 
+	pwd varchar(10), 
+	name varchar(20), 
+	age int,
+	primary key (id)
+	
+);
+
+desc test;
+
+insert into test values('renjun', 'mark', 'hyemin', 100);
+insert into test values('jaemin1004', 'jaemjaem', 'jaemin', 23);
+insert into test values('mark0825', 'renjunjun', 'mark', 100);
+insert into test values('chenle4', 'lele', 'chenle', 22);
+insert into test values('jisung2', 'jisungssi', 'jisungn', 21);
+
+select * from test

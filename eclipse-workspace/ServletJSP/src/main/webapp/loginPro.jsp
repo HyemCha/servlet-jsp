@@ -1,5 +1,7 @@
+<%@page import="javax.naming.InitialContext"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*, javax.sql.*, javax.naming.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,9 +27,29 @@
 			rd.forward(request, response);
 			return;
 		}
+		else{
+			// cp연결
+			InitialContext ic = new InitialContext();
+			DataSource sd = (DataSource) ic.lookup("java:comp/env/jdbc/mydb");
+			Connection conn = sd.getConnection();
+			String sql = "select pwd from test where id=?";
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next()){
+				if (rs.getString("pwd").equals(pwd)){
+					out.println("verified id&passwd ");
+				}else{
+					out.print("your id and pwd are not matched");
+					pageContext.forward("login.jsp");
+				}
+			}else{
+				out.print("your id deosn't exist");
+				pageContext.forward("login.jsp");
+			}
+		}
 	%>
 	
-	아이디 : <%= id %><br>
-	비밀번호 : <%= pwd %><br>
+	
 </body>
 </html>
