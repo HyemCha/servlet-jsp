@@ -35,7 +35,7 @@
 <body>
 	<div>
 		<h3>회원 가입</h3>
-		<form action="ELPro.jsp" method="post">
+		<form action="B.jsp" method="post">
 			Id<br><input class="text" type="text" name="id"/><br/>
 			비밀번호<br><input class="text" type="password" name="pwd"/><br/>
 			이름<br><input class="text" type="text" name="name"/><br/>
@@ -44,6 +44,5 @@
 			<input id="resetBtn" type="reset" value="취소"/>
 		</form>
 	</div>
-	
 </body>
 </html>

@@ -6,7 +6,14 @@
 <meta charset="UTF-8">
 <title>로그인 화면</title>
 <style>
-	
+	input.text{
+		border: 1px solid #888;
+		border-radius:10px;
+		width: 200px;
+		height: 25px;
+		padding: 2px;
+		margin:10px;
+	}
 	input#submitBtn{
 		width: 120px;
 		height:30px;
@@ -31,10 +38,10 @@
 	<%= msg %>
 	<h3>회원 정보</h3>
 	<form action="loginPro.jsp" method="post">
-		Id : <input type="text" name="id"/><br/>
-		비밀번호 : <input type="password" name="pwd"/><br/>
-		<input class="submitBtn" type="submit" value="로그인"/>
-		<input class="resetBtn" type="reset" value="취소"/>
+		Id<br><input class="text" type="text" name="id"/><br/>
+		비밀번호<br><input class="text" type="password" name="pwd"/><br/>
+		<input id="submitBtn" type="submit" value="로그인"/>
+		<input id="resetBtn" type="reset" value="취소"/>
 	</form>
 </body>
 </html>
