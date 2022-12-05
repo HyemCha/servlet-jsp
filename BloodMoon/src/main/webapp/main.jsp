@@ -8,41 +8,38 @@
 <link >
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<%
+	String s_id = (String)session.getAttribute("session_id");
+
+	
+%>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #e3f2fd;">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Blood Moon</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" href="main.jsp">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="joinForm.jsp">회원가입</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">회원 전체정보 보기</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            내 정보
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">로그인하기</a></li>
-            <li><a class="dropdown-item" href="#">ㅇㅇ</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
-      </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
-  </div>
-</nav>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active" aria-current="page" href="main.jsp">Home</a>
+    <%
+    if(s_id != null){ // 인증된 회원
+		%>  
+        <a class="nav-link" href="logout.jsp">로그아웃</a>
+        <a class="nav-link" href="updateForm.jsp">내 정보 수정</a>
+      
+		<%
+	} else{
+		%>
+		<a class="nav-link" href="joinForm.jsp">회원가입</a>
+        <a class="nav-link" href="login.jsp">로그인</a>
+		<%
+	}
+    %>
+	    </div>
+	    </div>
+	  </div>
+	</nav>
 </body>
 </html>

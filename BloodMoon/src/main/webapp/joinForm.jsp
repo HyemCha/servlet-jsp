@@ -39,7 +39,7 @@
 			Id<br><input class="text" type="text" name="id"/><br/>
 			비밀번호<br><input class="text" type="password" name="pwd"/><br/>
 			이름<br><input class="text" type="text" name="name"/><br/>
-			이메일<br><input class="text" type="email" name="email"/><br/>
+			이메일<br><input class="text" type="mail" name="mail"/><br/>
 			<input id="submitBtn" type="submit" value="회원가입"/>
 			<input id="resetBtn" type="reset" value="취소"/>
 		</form>
